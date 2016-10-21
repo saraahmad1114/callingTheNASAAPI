@@ -22,19 +22,19 @@ class Asteriod {
     init(asteriodDictionary: NSDictionary){
     
     guard let
-      name = asteriodDictionary["name"] as? String,
-      absoluteMagnitude = asteriodDictionary["absolute_magnitude_h"] as? Double,
-      neoReference = asteriodDictionary["neo_reference_id"] as? String,
-      estimatedMileMin = asteriodDictionary["estimated_diameter_min"] as? Double,
-      estimatedMileMax = asteriodDictionary["estimated_diameter_max"] as? Double
+      unwrappedName = asteriodDictionary["name"] as? String,
+      unwrappedAbsoluteMagnitude = asteriodDictionary["absolute_magnitude_h"] as? Double,
+      unwrappedNeoReference = asteriodDictionary["neo_reference_id"] as? String,
+      unwrappedEstimatedMileMin = asteriodDictionary["estimated_diameter_min"] as? Double,
+      unwrappedEstimatedMileMax = asteriodDictionary["estimated_diameter_max"] as? Double
       
     else {print("ERROR"); return}
         
-      self.name = name
-      self.absoluteMagnitude = absoluteMagnitude
-      self.neoReference = neoReference
-      self.estimatedMileMin = estimatedMileMin
-      self.estimatedMileMax = estimatedMileMax
+      self.name = unwrappedName
+      self.absoluteMagnitude = unwrappedAbsoluteMagnitude
+      self.neoReference = unwrappedNeoReference
+      self.estimatedMileMin = unwrappedEstimatedMileMin
+      self.estimatedMileMax = unwrappedEstimatedMileMax
     }
 
 }
