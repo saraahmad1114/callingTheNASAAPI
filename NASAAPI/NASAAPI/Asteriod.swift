@@ -13,8 +13,6 @@ class Asteriod {
 
     var asteriodDictionary: NSDictionary?
     var name: String?
-    var absoluteMagnitude: Double?
-    var neoReference: String?
     var estimatedMileMin: Double?
     var estimatedMileMax: Double?
     
@@ -22,19 +20,20 @@ class Asteriod {
     init(asteriodDictionary: NSDictionary){
     
     guard let
+        
+      unwrappedAsteriodDictionary = asteriodDictionary as? NSDictionary,
       unwrappedName = asteriodDictionary["name"] as? String,
-      unwrappedAbsoluteMagnitude = asteriodDictionary["absolute_magnitude_h"] as? Double,
-      unwrappedNeoReference = asteriodDictionary["neo_reference_id"] as? String,
-      unwrappedEstimatedMileMin = asteriodDictionary["estimated_diameter_min"] as? Double,
-      unwrappedEstimatedMileMax = asteriodDictionary["estimated_diameter_max"] as? Double
+      unwrappedEstimatedDiameterDictionary = asteriodDictionary["estimated_diameter"] as? NSDictionary,
+      unwrappedMiles = unwrappedEstimatedDiameterDictionary["miles"] as? NSDictionary,
+      unwrapppedEstimatedDiameterMin = unwrappedMiles["estimated_diameter_min"] as? Double,
+      unwrappedEstimatedDiameterMax = unwrappedMiles["estimated_diameter_max"] as? Double
       
     else {print("ERROR"); return}
-        
+       
+      self.asteriodDictionary = unwrappedAsteriodDictionary
       self.name = unwrappedName
-      self.absoluteMagnitude = unwrappedAbsoluteMagnitude
-      self.neoReference = unwrappedNeoReference
-      self.estimatedMileMin = unwrappedEstimatedMileMin
-      self.estimatedMileMax = unwrappedEstimatedMileMax
+      self.estimatedMileMin = unwrapppedEstimatedDiameterMin
+      self.estimatedMileMax = unwrappedEstimatedDiameterMax
     }
 
 }

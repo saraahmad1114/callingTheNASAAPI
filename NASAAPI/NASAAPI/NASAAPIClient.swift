@@ -11,9 +11,9 @@ import Foundation
 class NASAAPIClient{
 
 
-    class func getAsteriodInformationWith (startData: String, endData: String, completion: (NSDictionary) -> ()){
+    class func getAsteriodInformationWith (startData: String, endData: String, completion: (NSArray) -> ()){
     
-        var nasaDictionary: NSDictionary = [:]
+        var nasaArray = []
         
         let nasaURL = "https://api.nasa.gov/neo/rest/v1/feed?start_date=\(startData)&end_date=\(endData)&api_key=\(Secrets.nasaAPIKey)"
         
@@ -30,9 +30,17 @@ class NASAAPIClient{
             
             guard let unwrappedResponseDictionary = responseDictionary else {print("RESPONSE DICTIONARY DID NOT UNWRAP"); return}
             
-            nasaDictionary = unwrappedResponseDictionary
+            let nearEarthObjects = unwrappedResponseDictionary["near_earth_objects"] as? NSDictionary
             
-            completion(nasaDictionary)
+            guard let unwrappedNearEarthObjects = nearEarthObjects else {print("NEAR EARTH OBJECTS DID NOT UNWRAP"); return}
+            
+            let startDateArray = unwrappedNearEarthObjects[startData] as? NSArray
+
+            guard let unwrappedStartDateArray = startDateArray else {print("START DATE ARRAY DID NOT UNWRAP"); return}
+            
+            nasaArray = unwrappedStartDateArray 
+            
+            completion(nasaArray)
             
         }
         

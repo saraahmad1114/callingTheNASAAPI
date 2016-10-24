@@ -110,8 +110,8 @@
 				1B4E02BB1DB97484006357AC /* AppDelegate.swift */,
 				1B4E02EC1DB97721006357AC /* Secrets.swift */,
 				1B4E02EE1DB97765006357AC /* NASAAPIClient.swift */,
-				1B4E02F01DB97A50006357AC /* NASADataStore.swift */,
 				1B4E02F21DB97B33006357AC /* Asteriod.swift */,
+				1B4E02F01DB97A50006357AC /* NASADataStore.swift */,
 				1B4E02BF1DB97484006357AC /* Main.storyboard */,
 				1B4E02F41DB982FD006357AC /* AsteriodTableViewController.swift */,
 				1B4E02C51DB97484006357AC /* Assets.xcassets */,
@@ -502,6 +502,7 @@
 				1B4E02E51DB97484006357AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1B4E02E61DB97484006357AC /* Build configuration list for PBXNativeTarget "NASAAPITests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +511,7 @@
 				1B4E02E81DB97484006357AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1B4E02E91DB97484006357AC /* Build configuration list for PBXNativeTarget "NASAAPIUITests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +520,7 @@
 				1B4E02EB1DB97484006357AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
