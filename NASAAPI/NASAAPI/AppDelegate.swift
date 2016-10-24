@@ -18,16 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        NASAAPIClient.getAsteriodInformationWith("2015-09-0", endData: "2015-09-08") { (nasaArray) in
-            
-            print("This worked!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-            print("*****************************")
-            print(nasaArray)
-            print("*****************************")
-            print("This worked!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-
-
-        }
+//        NASAAPIClient.getAsteriodInformationWith("2015-09-07", endData: "2015-09-08") { (nasaInformation) in
+//            print("***********************")
+//            print(nasaInformation)
+//            print("printed in the app delegate")
+//            print("***********************")
+//        }
+        
         return true
     }
 

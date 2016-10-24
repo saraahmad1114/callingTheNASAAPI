@@ -14,7 +14,7 @@ class AsteriodTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.store.getAsteriodInformationWithCompletion("2015-09-07", endData: "2015-09-08") { (nasaArray) in
                 print("THIS IS PRINTING")
                 print("***************************")
@@ -25,12 +25,13 @@ class AsteriodTableViewController: UITableViewController {
         NSOperationQueue.mainQueue().addOperationWithBlock {
             self.tableView.reloadData()
         }
-
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        //self.tableView.reloadData()
+        NSOperationQueue.mainQueue().addOperationWithBlock {
+           self.tableView.reloadData()
+           }
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
