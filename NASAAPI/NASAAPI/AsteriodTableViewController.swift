@@ -15,18 +15,38 @@ class AsteriodTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.store.getAsteriodInformationWithCompletion("2015-09-07", endData: "2015-09-08") { (nasaArray) in
-                print("THIS IS PRINTING")
-                print("***************************")
-                print(nasaArray)
-                print("***************************")
-                self.tableView.reloadData()
+//        let qualityOfServiceClass = QOS_CLASS_BACKGROUND
+//        let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
+//        dispatch_async(backgroundQueue, {
+        
+//        self.store.getAsteriodInformationWithCompletion("2015-09-07", endData: "2015-09-08") { (nasaArray) in
+//                print("THIS IS PRINTING")
+//                print("***************************")
+//                print(nasaArray)
+//                print("***************************")
+//                self.tableView.reloadData()
+//        }
+//            })
+//        NSOperationQueue.mainQueue().addOperationWithBlock {
+//            self.tableView.reloadData()
+//        }
+        
+    let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+    dispatch_async(dispatch_get_global_queue(priority, 0)) {
+    self.store.getAsteriodInformationWithCompletion("2015-09-07", endData: "2015-09-08") { (nasaArray) in
+        print("THIS IS PRINTING")
+        print("***************************")
+        print(nasaArray)
+        print("***************************")
+        self.tableView.reloadData()
         }
-        NSOperationQueue.mainQueue().addOperationWithBlock {
+    }
+        dispatch_async(dispatch_get_main_queue()) {
             self.tableView.reloadData()
         }
     }
-    
+
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         NSOperationQueue.mainQueue().addOperationWithBlock {
