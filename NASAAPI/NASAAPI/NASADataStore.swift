@@ -35,9 +35,8 @@ class NASADataStore{
                 print("********************************************")
             
             }
-
-    }
-
+            completion(self.asteriods)
+        }
 
     }
 }
